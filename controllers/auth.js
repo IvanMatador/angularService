@@ -3,6 +3,7 @@ const { request } = require('express');
 const jsonWebToken = require('jsonwebtoken');
 const keys = require('../config/keys');
 const User = require('../models/User');
+const errorHandler = require('../utils/errorHandler');
 
 
 module.exports.login = async function(request, response){
@@ -50,7 +51,7 @@ module.exports.register = async function(request, response){
     await user.save();
     response.status(201).json(user);
    } catch(error){
-     console.log(error);
+     errorHandler(response, error);
    }
   }
 };
