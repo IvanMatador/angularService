@@ -2,7 +2,6 @@ const Category = require('../models/Category');
 const Position = require('../models/Position');
 const errorHandler = require('../utils/errorHandler');
 
-
 module.exports.getAll = async function(request, response){
   try {
     const categories = await Category.find({user: request.user.id});
@@ -14,9 +13,10 @@ module.exports.getAll = async function(request, response){
 
 module.exports.getById = async function(request, response){
   try {
-    const category = await Category.findById(request.params.id);
+    const category = await Category.findById(request.params.id);//findOne({_id: request.params.id})
     response.status(200).json(category);
-  } catch (error) {
+  } 
+  catch (error) {
     errorHandler(response, error)
   }
 }
