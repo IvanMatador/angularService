@@ -108,11 +108,11 @@ reader.readAsDataURL(file)
     obs$.subscribe( (category: Category) => {
       this.category = category
       MaterialService.toast("Изменения сохранены")
-      this.form.enable
+      this.form.enable()
     },
       (    error: { error: { message: string; }; }) => {
       MaterialService.toast(error.error.message)
-      this.form.enable
+      this.form.enable()
     }
 
     );
