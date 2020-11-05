@@ -76,7 +76,7 @@ deleteCategory(){
     )
   }
 }
-
+ 
   triggerClick(){
     this.inputRef.nativeElement.click()
   }
